@@ -4,6 +4,7 @@ import { join } from 'node:path'
 import { update } from './update'
 import './imap'
 import './sendMail'
+// require('update-electron-app')()
 
 // The built directory structure
 //
