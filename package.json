@@ -1,5 +1,5 @@
 {
-  "name": "mail",
+  "name": "kunpro-mail-assistant",
   "version": "1.0.0",
   "main": "dist-electron/main/index.js",
   "description": "kunpro-mail-assistant",
@@ -24,7 +24,9 @@
     "start": "electron-forge start",
     "package": "vite build && electron-forge package",
     "make": "vite build && electron-forge make",
-    "publish-mac": "vite build && electron-forge publish"
+    "make-mac-arm64": "vite build && electron-forge make --platform=darwin --arch=arm64",
+    "make-mac-x64": "vite build && electron-forge make --platform=darwin --arch=x64",
+    "make-window": "vite build && electron-forge make"
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
