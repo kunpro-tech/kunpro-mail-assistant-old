@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-    uri: 'https://apidev.kunpro.co/graphql/',
+    uri: import.meta.env.VITE_BASE_URL,
     cache: new InMemoryCache(),
 });
 

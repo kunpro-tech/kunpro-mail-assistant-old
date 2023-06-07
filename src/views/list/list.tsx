@@ -36,6 +36,8 @@ function List() {
 
   const [currentState, setCurrentState] = useState("serviceIsRunning");
 
+  const url = import.meta.env.VITE_BASE_WEBVIEW_URL + `dashboard/messages/email/?token=${kunproKey}`
+
   // 每十分钟检查一次邮件数量
   async function checkTheNewMail() {
     try {
@@ -259,7 +261,12 @@ function List() {
   return (
     <>
       {contextHolder}
-      <div>{currentState}</div>
+      <iframe src={url} style={ 
+        {
+          width:'100vw',
+          height:'100vh'
+        }
+      }></iframe>
     </>
   );
 }
