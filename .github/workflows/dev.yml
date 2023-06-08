@@ -1,11 +1,11 @@
 # Workflow's name
-name: Build Electron App For Win/Mac
+name: Build Development Electron App For Win/Mac
 
 # Workflow's trigger
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - 'd*.*.*'
 
 # Workflow's jobs
 jobs:
@@ -41,12 +41,12 @@ jobs:
       - name: build windows app
         if: matrix.os == 'windows-latest'
         run: |
-          yarn make-window
+          yarn make-window-dev
 
       - name: build mac app
         if: matrix.os == 'macos-latest'
         run: |
-          yarn make-mac
+          yarn make-mac-dev
 
         # step6: upload artifacts
       - name: upload artifacts
