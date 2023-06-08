@@ -1,4 +1,4 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, BrowserWindow, shell, ipcMain, Tray } from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
 import { update } from './update'
@@ -44,6 +44,8 @@ const preload = join(__dirname, '../preload/index.js')
 const url = process.env.VITE_DEV_SERVER_URL
 const indexHtml = join(process.env.DIST, 'index.html')
 
+let tray = null
+
 async function createWindow() {
   win = new BrowserWindow({
     title: 'Main window',
@@ -76,6 +78,14 @@ async function createWindow() {
     if (url.startsWith('https:')) shell.openExternal(url)
     return { action: 'deny' }
   })
+
+  // tray = new Tray(join(process.env.PUBLIC, 'favicon.ico'))
+
+  // tray.on("click", () => {
+  //   if (win) {
+  //     win.show()
+  //   }
+  // });
 
   // Apply electron-updater
   update(win)
